@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Settings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: #fff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            position: relative;
+        }
+
+        .back-btn {
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .header h1 {
+            flex: 1;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header-spacer {
+            width: 24px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            color: #999;
+            padding: 20px 0 12px;
+            font-weight: 400;
+        }
+
+        .settings-group {
+            background: #fff;
+            border-radius: 12px;
+        }
+
+        /* Setting Item */
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info {
+            flex: 1;
+            padding-right: 16px;
+        }
+
+        .setting-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .setting-description {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        /* Arrow link */
+        .setting-arrow {
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 52px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e0e0e0;
+            transition: 0.3s;
+            border-radius: 32px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        input:checked + .slider {
+            background-color: #00d4ff;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Divider */
+        .divider {
+            height: 8px;
+            background: #f5f5f5;
+            margin: 0 -20px;
+        }
+
+        /* Footer link */
+        .footer-link {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .footer-link a {
+            color: #00d4ff;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        /* New category highlight */
+        .new-badge {
+            background: #00d4ff;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button class="back-btn">‹</button>
+            <h1>Accessibility</h1>
+            <div class="header-spacer"></div>
+        </div>
+
+        <!-- Appearance Section -->
+        <div class="section">
+            <div class="section-title">Appearance</div>
+            <div class="settings-group">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Text size</div>
+                        <div class="setting-description">Adjust text size on the app.</div>
+                    </div>
+                    <div class="setting-arrow">
+                        <span class="arrow-icon">›</span>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Increase color contrast</div>
+                        <div class="setting-description">This will only increase color contrast on the app.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Scroll and earn Section (NEW) -->
+        <div class="section">
+            <div class="section-title">Scroll and earn <span class="new-badge">NEW</span></div>
+            <div class="settings-group">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Enable scroll rewards</div>
+                        <div class="setting-description">Earn points while scrolling through content.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Show earnings counter</div>
+                        <div class="setting-description">Display your earnings progress on screen.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Daily goal notifications</div>
+                        <div class="setting-description">Get notified when you reach your daily scroll goal.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Content Section -->
+        <div class="section">
+            <div class="section-title">Content</div>
+            <div class="settings-group">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Remove photosensitive videos</div>
+                        <div class="setting-description">Remove videos that may trigger photosensitive seizures.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Captions</div>
+                        <div class="setting-description">Show captions in your app language when available.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Motion Section -->
+        <div class="section">
+            <div class="section-title">Motion</div>
+            <div class="settings-group">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Reduced motion</div>
+                        <div class="setting-description">Minimize screen transitions and GIF animations.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Faster scroll speed</div>
+                        <div class="setting-description">Double your scroll speed through videos.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-title">Animated thumbnail</div>
+                        <div class="setting-description">Show animations on thumbnails.</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-link">
+            <a href="#">Learn more about accessibility at TikTok</a>
+        </div>
+    </div>
+</body>
+</html>
